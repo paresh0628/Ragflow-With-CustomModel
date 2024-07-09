@@ -1,0 +1,59 @@
+
+1)sudo apt-get update
+2)sudo apt update
+3)sudo apt upgrade
+4)sudo apt install python-pip
+5)sudo apt install python3.10-venv
+6)sudo apt-get install libgl1-mesa-glx
+7)sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+
+8)git clone https://github.com/infiniflow/ragflow.git
+9)python3 -m venv vend
+10)source venv/bin/activate
+
+11)cd ragflow
+
+13)pip install -r requiremnts.txt
+14)
+in python 3 {
+import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
+
+}
+
+15)sudo cp rag/svr/task_executor.py task_executor.py
+16)sudo cp api\ragflow_server.py ragflow_server.py
+
+
+tm1: cd docker >> docker compose -f docker-compose-base.yml up -d
+tm2: python task_executor.py
+tm3: ragflow_server.py
+
+
+
+
+##### for front end
+
+sudo apt install npm -y
+
+cd web
+    
+install nvm .exe from https://github.com/coreybutler/nvm-windows/releases 
+
+check if nvm is installed or not by command 'nvm -v'
+
+To install packages use node version 18.17.0 by 'npm i'
+
+if not having required node version then run the following command's:
+
+1. 'nvm i 18.17.0'
+2. 'nvm list' - to check the required version is installed or not
+3. To switch the node version use command 'nvm use <version-required>'
+
+
+
+
+id:paresh@tuvoc.com 
+pwd: paresh@tuvoc

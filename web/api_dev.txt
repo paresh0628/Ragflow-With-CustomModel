@@ -1,0 +1,446 @@
+http://172.28.57.116:9222/v1/kb/create
+payload = {name: "fewffefef"}
+resp = {"data": {
+            "kb_id": "66686aa4379a11ef8631b5d0c0406c1f"
+        },
+        "retcode": 0,
+        "retmsg": "success"
+        }
+
+
+http://172.28.57.116:9222/v1/kb/detail?kb_id=66686aa4379a11ef8631b5d0c0406c1f
+kb_id: 66686aa4379a11ef8631b5d0c0406c1f
+resp= {
+    {
+    "data": {
+        "avatar": null,
+        "chunk_num": 0,
+        "description": null,
+        "doc_num": 0,
+        "embd_id": "BAAI/bge-large-zh-v1.5",
+        "id": "66686aa4379a11ef8631b5d0c0406c1f",
+        "language": "English",
+        "name": "fewffefef",
+        "parser_config": {
+            "pages": [
+                [
+                    1,
+                    1000000
+                ]
+            ]
+        },
+        "parser_id": "naive",
+        "permission": "me",
+        "token_num": 0
+    },
+    "retcode": 0,
+    "retmsg": "success"
+}
+}
+
+
+http://172.28.57.116:9222/v1/user/tenant_info
+resp= {{
+    "data": {
+        "asr_id": "paraformer-realtime-8k-v1",
+        "embd_id": "BAAI/bge-large-zh-v1.5",
+        "img2txt_id": "qwen-vl-max",
+        "llm_id": "qwen-plus",
+        "name": "paresh\u2018s Kingdom",
+        "parser_ids": "naive:General,qa:Q&A,resume:Resume,manual:Manual,table:Table,paper:Paper,book:Book,laws:Laws,presentation:Presentation,picture:Picture,one:One",
+        "rerank_id": "BAAI/bge-reranker-v2-m3",
+        "role": "owner",
+        "tenant_id": "f0b6ca1f377911ef953ea3c1cc260dc8"
+    },
+    "retcode": 0,
+    "retmsg": "success"
+}}
+
+
+
+http://172.28.57.116:9222/v1/kb/detail?kb_id=66686aa4379a11ef8631b5d0c0406c1f
+kb_id: 66686aa4379a11ef8631b5d0c0406c1f
+resp= {
+    {
+    "data": {
+        "avatar": null,
+        "chunk_num": 0,
+        "description": null,
+        "doc_num": 0,
+        "embd_id": "BAAI/bge-large-zh-v1.5",
+        "id": "66686aa4379a11ef8631b5d0c0406c1f",
+        "language": "English",
+        "name": "fewffefef",
+        "parser_config": {
+            "pages": [
+                [
+                    1,
+                    1000000
+                ]
+            ]
+        },
+        "parser_id": "naive",
+        "permission": "me",
+        "token_num": 0
+    },
+    "retcode": 0,
+    "retmsg": "success"
+}
+}
+
+
+
+http://172.28.57.116:9222/v1/llm/list?model_type=embedding
+model_type: embedding
+resp={{
+    "data": {
+        "BAAI": [
+            {
+                "available": true,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653102,
+                "fid": "BAAI",
+                "llm_name": "BAAI/bge-large-zh-v1.5",
+                "max_tokens": 1024,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING,",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653102
+            }
+        ],
+        "BaiChuan": [
+            {
+                "available": false,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653089,
+                "fid": "BaiChuan",
+                "llm_name": "Baichuan-Text-Embedding",
+                "max_tokens": 512,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653089
+            }
+        ],
+        "FastEmbed": [
+            {
+                "available": true,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653063,
+                "fid": "FastEmbed",
+                "llm_name": "BAAI/bge-base-en-v1.5",
+                "max_tokens": 512,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING,",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653063
+            },
+            {
+                "available": true,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653064,
+                "fid": "FastEmbed",
+                "llm_name": "BAAI/bge-large-en-v1.5",
+                "max_tokens": 512,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING,",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653064
+            },
+            {
+                "available": true,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653060,
+                "fid": "FastEmbed",
+                "llm_name": "BAAI/bge-small-en-v1.5",
+                "max_tokens": 512,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING,",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653060
+            },
+            {
+                "available": true,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653061,
+                "fid": "FastEmbed",
+                "llm_name": "BAAI/bge-small-zh-v1.5",
+                "max_tokens": 512,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING,",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653061
+            },
+            {
+                "available": true,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653073,
+                "fid": "FastEmbed",
+                "llm_name": "jinaai/jina-embeddings-v2-base-en",
+                "max_tokens": 2147483647,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING,",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653073
+            },
+            {
+                "available": true,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653071,
+                "fid": "FastEmbed",
+                "llm_name": "jinaai/jina-embeddings-v2-small-en",
+                "max_tokens": 2147483647,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING,",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653071
+            },
+            {
+                "available": true,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653069,
+                "fid": "FastEmbed",
+                "llm_name": "nomic-ai/nomic-embed-text-v1.5",
+                "max_tokens": 8192,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING,",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653069
+            },
+            {
+                "available": true,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653066,
+                "fid": "FastEmbed",
+                "llm_name": "sentence-transformers/all-MiniLM-L6-v2",
+                "max_tokens": 512,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING,",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653066
+            }
+        ],
+        "Jina": [
+            {
+                "available": false,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653098,
+                "fid": "Jina",
+                "llm_name": "jina-embeddings-v2-base-code",
+                "max_tokens": 8196,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653098
+            },
+            {
+                "available": false,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653095,
+                "fid": "Jina",
+                "llm_name": "jina-embeddings-v2-base-de",
+                "max_tokens": 8196,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653095
+            },
+            {
+                "available": false,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653094,
+                "fid": "Jina",
+                "llm_name": "jina-embeddings-v2-base-en",
+                "max_tokens": 8196,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653094
+            },
+            {
+                "available": false,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653096,
+                "fid": "Jina",
+                "llm_name": "jina-embeddings-v2-base-es",
+                "max_tokens": 8196,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653096
+            },
+            {
+                "available": false,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653100,
+                "fid": "Jina",
+                "llm_name": "jina-embeddings-v2-base-zh",
+                "max_tokens": 8196,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653100
+            }
+        ],
+        "Mistral": [
+            {
+                "available": false,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653121,
+                "fid": "Mistral",
+                "llm_name": "mistral-embed",
+                "max_tokens": 8192,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "LLM,CHAT,8k",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653121
+            }
+        ],
+        "OpenAI": [
+            {
+                "available": false,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653038,
+                "fid": "OpenAI",
+                "llm_name": "text-embedding-3-large",
+                "max_tokens": 8191,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING,8K",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653038
+            },
+            {
+                "available": false,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653035,
+                "fid": "OpenAI",
+                "llm_name": "text-embedding-3-small",
+                "max_tokens": 8191,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING,8K",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653035
+            },
+            {
+                "available": false,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653034,
+                "fid": "OpenAI",
+                "llm_name": "text-embedding-ada-002",
+                "max_tokens": 8191,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING,8K",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653034
+            }
+        ],
+        "Tongyi-Qianwen": [
+            {
+                "available": true,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653049,
+                "fid": "Tongyi-Qianwen",
+                "llm_name": "text-embedding-v2",
+                "max_tokens": 2048,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING,2K",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653049
+            }
+        ],
+        "Youdao": [
+            {
+                "available": true,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653074,
+                "fid": "Youdao",
+                "llm_name": "maidalun1020/bce-embedding-base_v1",
+                "max_tokens": 512,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING,",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653074
+            }
+        ],
+        "ZHIPU-AI": [
+            {
+                "available": false,
+                "create_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "create_time": 1719814653057,
+                "fid": "ZHIPU-AI",
+                "llm_name": "embedding-2",
+                "max_tokens": 512,
+                "model_type": "embedding",
+                "status": "1",
+                "tags": "TEXT EMBEDDING",
+                "update_date": "Mon, 01 Jul 2024 11:47:33 GMT",
+                "update_time": 1719814653057
+            }
+        ]
+    },
+    "retcode": 0,
+    "retmsg": "success"
+}}
+
+http://172.28.57.116:9222/v1/kb/update
+payload={"name":"fewffefef","avatar":"","description":null,"language":"English","permission":"me","embd_id":"BAAI/bge-large-zh-v1.5","parser_id":"naive","parser_config":{"raptor":{"use_raptor":false},"chunk_token_num":128,"layout_recognize":true},"kb_id":"66686aa4379a11ef8631b5d0c0406c1f"}
+resp={{
+    "data": {
+        "avatar": "",
+        "chunk_num": 0,
+        "create_date": "Mon, 01 Jul 2024 16:39:35 GMT",
+        "create_time": 1719832175441,
+        "created_by": "f0b6ca1f377911ef953ea3c1cc260dc8",
+        "description": null,
+        "doc_num": 0,
+        "embd_id": "BAAI/bge-large-zh-v1.5",
+        "id": "66686aa4379a11ef8631b5d0c0406c1f",
+        "language": "English",
+        "name": "fewffefef",
+        "parser_config": {
+            "chunk_token_num": 128,
+            "layout_recognize": true,
+            "raptor": {
+                "use_raptor": false
+            }
+        },
+        "parser_id": "naive",
+        "permission": "me",
+        "similarity_threshold": 0.2,
+        "status": "1",
+        "tenant_id": "f0b6ca1f377911ef953ea3c1cc260dc8",
+        "token_num": 0,
+        "update_date": "Mon, 01 Jul 2024 16:40:33 GMT",
+        "update_time": 1719832233062,
+        "vector_similarity_weight": 0.3
+    },
+    "retcode": 0,
+    "retmsg": "success"
+}}
+
+
+
+
+
+229c992a37a511ef8631b5d0c0406c1f
