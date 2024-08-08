@@ -57,6 +57,7 @@ const IconMap = {
   VolcEngine: 'volc_engine',
   BaiChuan: 'baichuan',
   Jina: 'jina',
+  Groq: 'Groq',
 };
 
 const LlmIcon = ({ name }: { name: string }) => {

@@ -652,7 +652,7 @@ def init_llm_factory():
             "max_tokens": 8192,
             "model_type": LLMType.EMBEDDING
         },
-        # ------------------------ Mistral -----------------------
+        # ------------------------ Groq -----------------------
         {
             "fid": factory_infos[15]["name"],
             "llm_name": "gemma-7b-it",
