@@ -168,6 +168,12 @@ factory_infos = [{
     "logo": "",
     "tags": "LLM",
     "status": "1",
+},
+{
+    "name": "Huggingface",
+    "logo": "",
+    "tags": "LLM",
+    "status": "1",
 }
     # {
     #     "name": "文心一言",
@@ -687,7 +693,15 @@ def init_llm_factory():
             "tags": "LLM,CHAT,5k",
             "max_tokens": 5000,
             "model_type": LLMType.CHAT.value
-        }
+        },
+        # ------------------------ Huggingface -----------------------
+        {
+            "fid": factory_infos[16]["name"],
+            "llm_name": "Huff",
+            "tags": "LLM,CHAT,15k",
+            "max_tokens": 15000,
+            "model_type": LLMType.CHAT.value
+        },
     ]
     for info in factory_infos:
         try:

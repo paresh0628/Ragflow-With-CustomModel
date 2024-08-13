@@ -56,7 +56,8 @@ ChatModel = {
     "BaiChuan": BaiChuanChat,
     "MiniMax": MiniMaxChat,
     "Mistral": MistralChat,
-    "Groq": Groqchat
+    "Groq": Groqchat,
+    "Huggingface": Huggingfacechat,
 }
 
 

@@ -98,16 +98,23 @@ class GptTurbo(Base):
 #         return response.json()
 
 class Groqchat:
-    def __init__(self, key, model_name,base_url=''):
+    def __init__(self, key, model_name, base_url=''):
         self.client = Groq(api_key=key)
         self.model_name = model_name
 
     def chat(self, system, history, gen_conf):
         if system:
             history.insert(0, {"role": "system", "content": system})
+
+        # Filter out unwanted keys from gen_conf
         for k in list(gen_conf.keys()):
             if k not in ["temperature", "top_p", "max_tokens"]:
                 del gen_conf[k]
+
+        # Debugging: Print the context being passed to the client
+        print("Model Name:", self.model_name)
+        print("Messages History:", history)
+        print("Generation Config:", gen_conf)
 
         ans = ""
         try:
@@ -127,9 +134,17 @@ class Groqchat:
     def chat_streamly(self, system, history, gen_conf):
         if system:
             history.insert(0, {"role": "system", "content": system})
+
+        # Filter out unwanted keys from gen_conf
         for k in list(gen_conf.keys()):
             if k not in ["temperature", "top_p", "max_tokens"]:
                 del gen_conf[k]
+
+        # Debugging: Print the context being passed to the client
+        print("Model Name:", self.model_name)
+        print("Messages History:", history)
+        print("Generation Config:", gen_conf)
+
         ans = ""
         total_tokens = 0
         try:
@@ -603,3 +618,184 @@ class MistralChat(Base):
             yield ans + "\n**ERROR**: " + str(e)
 
         yield total_tokens
+
+#
+# #
+# class Huggingfacechat(Base):
+#   def __init__(self, key, model_name, base_url=None):
+#       # Ensure the base_url is set to a default if not provided
+#       if not base_url:
+#           base_url = "https://fv20qeldmcvx4mos.us-east-1.aws.endpoints.huggingface.cloud"
+#
+#       self.api_url = base_url
+#       self.headers = {
+#           "Accept": "application/json",
+#           "Authorization": f"Bearer {key}",
+#           "Content-Type": "application/json"
+#       }
+#       self.model_name = model_name
+#
+#   def chat(self, system, history, gen_conf):
+#       if system:
+#           history.insert(0, {"role": "system", "content": system})
+#
+#       print("Messages History:", history)
+#       # Prepare the payload for the API request
+#       payload = {
+#           "inputs": history,
+#           "parameters": {}
+#       }
+#       print("pl------------------------------", payload)
+#
+#       try:
+#           response = requests.post(self.api_url, headers=self.headers, json=payload)
+#           response.raise_for_status()
+#           data = response.json()
+#           print('data1--->', data)
+#
+#           # Check if the response is a list and handle accordingly
+#           if isinstance(data, list) and len(data) > 0:
+#               print('data--->', data)
+#               ans = data[0].get("generated_text", "").strip()
+#           else:
+#               ans = ""
+#
+#           return ans, len(ans.split())  # Return the answer and token count
+#       except requests.exceptions.RequestException as e:
+#           return "**ERROR**: " + str(e), 0
+#
+#   def chat_streamly(self, system, history, gen_conf):
+#       if system:
+#           history.insert(0, {"role": "system", "content": system})
+#
+#       print("Messages History:", history)
+#       payload = {
+#           "inputs": history,
+#           "parameters": {}
+#       }
+#       print("pl-------------------",payload)
+#       try:
+#           response = requests.post(self.api_url, headers=self.headers, json=payload)
+#           response.raise_for_status()
+#           data = response.json()
+#
+#           # Check if the response is a list and handle accordingly
+#           if isinstance(data, list) and len(data) > 0:
+#               ans = data[0].get("generated_text", "").strip()
+#               # Simulate streaming by yielding chunks of the response
+#               for chunk in self._chunk_text(ans, chunk_size=50):
+#                   yield chunk
+#           else:
+#               yield ""
+#
+#       except requests.exceptions.RequestException as e:
+#           yield "**ERROR**: " + str(e)
+#
+#   def _chunk_text(self, text, chunk_size=50):
+#       """Helper method to split text into chunks."""
+#       for i in range(0, len(text), chunk_size):
+#           yield text[i:i + chunk_size]
+
+
+
+
+# class Huggingfacechat(Base):
+#   def __init__(self, key, model_name, base_url=None):
+#       # Ensure the base_url is set to a default if not provided
+#       if not base_url:
+#           # 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
+#           base_url = "https://fv20qeldmcvx4mos.us-east-1.aws.endpoints.huggingface.cloud"
+#
+#       self.api_url = base_url
+#       self.headers = {
+#           "Accept": "application/json",
+#           "Authorization": f"Bearer {key}",
+#           "Content-Type": "application/json"
+#       }
+#       self.model_name = model_name
+#
+#   def chat(self, system, history, gen_conf):
+#       if system:
+#           history.insert(0, {"role": "system", "content": system})
+#       # print('histry',history)
+#       # Ensure the last message content is a string
+#       user_input = history[-1]["content"]
+#       # print('up', user_input)
+#       if not isinstance(user_input, str):
+#           return "**ERROR**: Input must be a string", 0
+#
+#       # Prepare the payload for the API request
+#       payload = {
+#           "inputs": user_input,
+#           "parameters": {}
+#       }
+#
+#       # Debugging: Print the types of the variables
+#       # print(f"API URL: {self.api_url} (type: {type(self.api_url)})")
+#       # print(f"Headers: {self.headers} (type: {type(self.headers)})")
+#       # print(f"Payload: {payload} (type: {type(payload)})")
+#
+#       try:
+#           response = requests.post(self.api_url, headers=self.headers, json=payload)
+#           response.raise_for_status()
+#           data = response.json()
+#           # print('data1--->', data)
+#
+#           # Check if the response is a list and handle accordingly
+#           if isinstance(data, list) and len(data) > 0:
+#               # print('data--->', data)
+#               ans = data[0].get("generated_text", "").strip()
+#           else:
+#               ans = ""
+#
+#           return ans, len(ans.split())  # Return the answer and token count
+#       except requests.exceptions.RequestException as e:
+#           return "**ERROR**: " + str(e), 0
+#
+#   def chat_streamly(self, system, history, gen_conf):
+#       if system:
+#           history.insert(0, {"role": "system", "content": system})
+#
+#       print("Messages History:", history)
+#       payload = {
+#           "inputs": str(history),
+#           "parameters": {}
+#       }
+#       print("pl-------------------",payload)
+#       try:
+#           response = requests.post(self.api_url, headers=self.headers, json=payload)
+#           response.raise_for_status()
+#           print('res',response)
+#           data = response.json()
+#           print('data', data)
+#
+#           # Check if the response is a list and handle accordingly
+#           if isinstance(data, list) and len(data) > 0:
+#               ans = data[0].get("generated_text", "").strip()
+#               # Simulate streaming by yielding chunks of the response
+#               for chunk in self._chunk_text(ans, chunk_size=50):
+#                   yield chunk
+#           else:
+#               yield ""
+#
+#       except requests.exceptions.RequestException as e:
+#           yield "**ERROR**: " + str(e)
+#
+#   def _chunk_text(self, text, chunk_size=50):
+#       """Helper method to split text into chunks."""
+#       for i in range(0, len(text), chunk_size):
+#           yield text[i:i + chunk_size]
+
+
+
+
+
+
+class Huggingfacechat(Base):
+    def __init__(self, key, model_name="tgi", base_url="https://fv20qeldmcvx4mos.us-east-1.aws.endpoints.huggingface.cloud/v1/"):
+        if not base_url: base_url="https://fv20qeldmcvx4mos.us-east-1.aws.endpoints.huggingface.cloud/v1/"
+        super().__init__(key, model_name, base_url)
+
+
+
+
